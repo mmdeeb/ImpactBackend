@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj": {}
+    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj": {
+    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj",
+        "projectUniqueName": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj",
         "projectName": "ImpactInfastructure",
-        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj",
+        "projectPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactInfastructure\\ImpactInfastructure.csproj",
         "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfastructure\\obj\\",
+        "outputPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactInfastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",

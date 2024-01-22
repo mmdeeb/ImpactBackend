@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj": {}
+    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj": {
+    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj",
+        "projectUniqueName": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj",
         "projectName": "ImpactPresentation",
-        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj",
+        "projectPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj",
         "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\obj\\",
+        "outputPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactPresentation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
