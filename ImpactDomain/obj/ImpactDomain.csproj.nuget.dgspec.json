@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj": {}
+    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj": {
+    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj",
+        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj",
         "projectName": "ImpactDomain",
-        "projectPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj",
+        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactDomain\\ImpactDomain.csproj",
         "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactDomain\\obj\\",
+        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactDomain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj": {}
+    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj": {
+    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj",
         "projectName": "ImpactWebAPI",
-        "projectPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj",
+        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebAPI\\ImpactWebAPI.csproj",
         "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\Source\\Repos\\ImpactBackend\\ImpactWebAPI\\obj\\",
+        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",

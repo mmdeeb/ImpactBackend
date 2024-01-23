@@ -1,6 +1,4 @@
-﻿
-namespace ImpactDomain.Entities;
-
+﻿namespace ImpactDomain.Entities;
 
 public class Center : BaseAuditableEntity
 {
