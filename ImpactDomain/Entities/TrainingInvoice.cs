@@ -7,6 +7,6 @@ public class TrainingInvoice : BaseAuditableEntity
     public List<AdditionalCost> AdditionalCosts { get; set; }
     public List<LogisticCost> LogisticCosts { get; set; }
     public Traning Traning { get; set; }
-
+    public string? PhotoInvoiceURL { get; set; }
 
 }

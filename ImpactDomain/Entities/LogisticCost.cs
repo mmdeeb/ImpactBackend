@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class LogisticCost : BaseAuditableEntity
 {
-    internal class LogisticCost
-    {
-    }
+    public int LogisticCostId { get; set; }
+    public string Details { get; set; }
+    public string? PhotoInvoiceURL { get; set; }
+    public User Person { get; set; }
+    public Center Center { get; set; }
 }

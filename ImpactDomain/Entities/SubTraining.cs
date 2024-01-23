@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class SubTraining : BaseAuditableEntity
 {
-    internal class SubTraining
-    {
-    }
+    public int SubTrainingId { get; set; }
+    public string SubTrainingName { get; set;} 
+    public string SubTrainingDescription { get; set;}
+    public List<Trainer> Trainers { get; set; }
+    public TrainingType TrainingType { get; set; }
 }
