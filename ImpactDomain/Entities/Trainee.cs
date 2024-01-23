@@ -1,6 +1,4 @@
-﻿using ImpactDomain.Entities;
-
-namespace ImpactDomain.Entitiesl;
+﻿namespace ImpactDomain.Entities;
 
 public class Trainee : BaseAuditableEntity
 {
