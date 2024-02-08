@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class ReservationDay : BaseAuditableEntity
 {
-    internal class ReservationDay
-    {
-    }
+    public int ReservationDayId { get; set; }
+    public Date Date { get; set; }
+    public ExternalReservation ExternalReservation { get; set; }
+    public List<string> Services { get; set; }
+    public double Expense  { get; set; }
+    public double ExpenseCost { get; set;}
+
 }

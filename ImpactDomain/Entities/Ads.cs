@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class Ads : BaseAuditableEntity
 {
-    internal class Ads
-    {
-    }
+    public int AdsId { get; set; }
+    public List<string> AdsMedia { get; set;}
+    public string AdsTitle { get; set;}
+    public string AdsDescription { get; set;}
 }

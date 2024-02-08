@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class ExternalReservation : BaseAuditableEntity
 {
-    internal class ExternalReservation
-    {
-    }
+    public int ExternalReservationId { get; set; }
+    public ExternalCenter ExternalCenter { get; set; }
+    public List<ReservationDay> ReservationDays { get; set; }
 }

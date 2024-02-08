@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class Paid : BaseAuditableEntity
 {
-    internal class Paid
-    {
-    }
+    public int PaidId { get; set; }
+    //يجب تحديد نوع الحساب يشكل صحيح
+    public RestaurantAccount Account { get; set;}
+    public double PaymentAmount { get; set; }
+    public DateTime Date { get; set;}
+    public string Receiver { get; set; }
+    public string Payer { get; set; }
 }

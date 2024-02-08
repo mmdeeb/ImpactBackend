@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ImpactDomain.Entities;
 
-namespace ImpactDomain.Entities
+public class RestaurantAccount : BaseAuditableEntity
 {
-    internal class Account
-    {
-    }
+    public int AccountId { get; set; }
+    public Restaurant Restaurant { get; set; }
+    public double TotalBalance { get; set; }
+    public double Debt { get; set; }
+    public List<Paid> Paids { get; set; }
+    public List<Mail> Mails { get; set; }
 }
