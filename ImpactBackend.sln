@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactDomain", "ImpactDomain\ImpactDomain.csproj", "{D7C88D8E-C870-4EC3-905B-219A7F4521FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactDomain", "ImpactDomain\ImpactDomain.csproj", "{D7C88D8E-C870-4EC3-905B-219A7F4521FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactApplication", "ImpactApplication\ImpactApplication.csproj", "{311D34F9-3968-4283-B0BF-F93670A06DB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactApplication", "ImpactApplication\ImpactApplication.csproj", "{311D34F9-3968-4283-B0BF-F93670A06DB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactPresentation", "ImpactPresentation\ImpactPresentation.csproj", "{7714406F-8C33-4646-BC0E-E30187A4EF30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactPresentation", "ImpactPresentation\ImpactPresentation.csproj", "{7714406F-8C33-4646-BC0E-E30187A4EF30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactWebAPI", "ImpactWebAPI\ImpactWebAPI.csproj", "{9C603B29-DA5C-4685-9C21-37330472C33E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactWebAPI", "ImpactWebAPI\ImpactWebAPI.csproj", "{9C603B29-DA5C-4685-9C21-37330472C33E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactInfastructure", "ImpactInfastructure\ImpactInfastructure.csproj", "{1C9B42AF-E62F-4F55-8151-0BBF1DFCB23D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactInfastructure", "ImpactInfastructure\ImpactInfastructure.csproj", "{1C9B42AF-E62F-4F55-8151-0BBF1DFCB23D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B9C62F44-C4A4-4A12-95E9-2E1BD99297D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{A5C59F0F-4C14-4147-B125-D20BB69FFBAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7C88D8E-C870-4EC3-905B-219A7F4521FF} = {B9C62F44-C4A4-4A12-95E9-2E1BD99297D2}
+		{311D34F9-3968-4283-B0BF-F93670A06DB3} = {B9C62F44-C4A4-4A12-95E9-2E1BD99297D2}
+		{7714406F-8C33-4646-BC0E-E30187A4EF30} = {A5C59F0F-4C14-4147-B125-D20BB69FFBAB}
+		{1C9B42AF-E62F-4F55-8151-0BBF1DFCB23D} = {A5C59F0F-4C14-4147-B125-D20BB69FFBAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6F32100-317D-425A-A0DB-81F5CC79B9AA}
