@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ImpactWebAPI.Controllers
+namespace ImpactWebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

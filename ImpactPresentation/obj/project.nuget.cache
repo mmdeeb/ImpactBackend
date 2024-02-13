@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eVSREVX2Cct9SqbIFWQmvGEQQ2jOKYGit3e6sKWVXAX0HnVnrPxjoed8xks+iHF5imNlcC2wYp/h4J7n+PHwKw==",
+  "dgSpecHash": "B2rFg94EaYUXGuGN5wZ43hD1iCYZ6kTSJzLVYx2tWF6Tqoj6X/IESGRAj0i7gjtJ68GPWNAYubzzpLArQeJGtQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mohammed yousef\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

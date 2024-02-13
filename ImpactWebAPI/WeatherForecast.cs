@@ -1,4 +1,4 @@
-namespace ImpactWebAPI
+namespace ImpactWebApi
 {
     public class WeatherForecast
     {
