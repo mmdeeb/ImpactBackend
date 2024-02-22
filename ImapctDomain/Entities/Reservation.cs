@@ -8,7 +8,7 @@ public class Reservation : BaseAuditableEntity
     public int ClientId { get; set; }
     public string Status { get; set; }
     public double Cost { get; set; }
-    public List<Traning> Training { get; set; }
+    public List<Training> Training { get; set; }
 
 
 }

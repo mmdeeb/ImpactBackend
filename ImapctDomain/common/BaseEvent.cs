@@ -1,7 +1,7 @@
-﻿//using MediatR;
+﻿using MediatR;
 
-//namespace ImpactDomain.Common;
+namespace ImpactDomain.Common;
 
-//public abstract class BaseEvent : INotification
-//{
-//}
+public abstract class BaseEvent : INotification
+{
+}

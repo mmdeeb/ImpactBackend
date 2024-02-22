@@ -51,6 +51,9 @@
       "ImapctDomain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "MediatR": "12.2.0"
+        },
         "compile": {
           "bin/placeholder/ImapctDomain.dll": {}
         },
@@ -132,7 +135,8 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "ImapctDomain >= 1.0.0",
-      "MediatR >= 12.2.0"
+      "MediatR >= 12.2.0",
+      "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.0"
     ]
   },
   "packageFolders": {
@@ -181,6 +185,10 @@
           "MediatR": {
             "target": "Package",
             "version": "[12.2.0, )"
+          },
+          "Microsoft.Extensions.DependencyInjection.Abstractions": {
+            "target": "Package",
+            "version": "[8.0.0, )"
           }
         },
         "imports": [

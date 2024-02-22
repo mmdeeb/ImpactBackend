@@ -1,8 +1,8 @@
 ﻿namespace ImpactDomain.Entities;
 
-public class Traning : BaseAuditableEntity
+public class Training : BaseAuditableEntity
 {
-    public string TraningName { get; set; }
+    public string TrainingName { get; set; }
     public Reservation Reservation { get; set; }
     public int NumberOfStudents { get; set; }
     public string TrainingDetails { get; set;}
