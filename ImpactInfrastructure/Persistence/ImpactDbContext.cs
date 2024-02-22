@@ -43,27 +43,11 @@ public class ImpactDbContext : DbContext
             .HasOne(c => c.Reservation)     // Client has one Reservation
             .WithOne(r => r.Client)         // Reservation has one Client
             .HasForeignKey<Reservation>(r => r.ClientId);  // Specify foreign key property in Reservation
-        modelBuilder.Entity<Training>()
-        .HasNoKey();
-        modelBuilder.Entity<Trainer>()
-        .HasNoKey();
-        modelBuilder.Entity<Trainee>()
-        .HasNoKey();
-        modelBuilder.Entity<ReservationDay>()
-        .HasNoKey();
-        modelBuilder.Entity<Hall>()
-        .HasNoKey();
-        modelBuilder.Entity<Ads>()
-        .HasNoKey();
-        modelBuilder.Entity<AboutUs>()
-        .HasNoKey();
-
-
 
         modelBuilder.Entity<AdditionalCost>()
-       .HasOne(a => a.Traning) // AdditionalCost has one Training
-       .WithMany()             // Training can have many AdditionalCosts
-       .HasForeignKey(a => a.TraningId); // Specify the foreign key property in AdditionalCost
+       .HasOne(t => t.Traning) // AdditionalCost has one Training
+       .WithMany(A=> A.AdditionalCosts)             // Training can have many AdditionalCosts
+       .HasForeignKey(t => t.TraningId); // Specify the foreign key property in AdditionalCost
 
         base.OnModelCreating(modelBuilder);
     }

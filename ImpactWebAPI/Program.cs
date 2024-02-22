@@ -1,6 +1,8 @@
 using ImpactApplication;
 using ImpactInfrastructure;
+using ImpactInfrastructure.Persistence;
 using ImpactPresentation;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 
@@ -15,9 +17,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddApplication()
-    .AddInfrastructure()
+    .AddInfrastructure(builder.Configuration)
     .AddPresentation();
-
+builder.Services.AddDbContext<ImpactDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
