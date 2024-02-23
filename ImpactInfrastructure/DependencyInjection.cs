@@ -12,9 +12,9 @@ public static class DependencyInjection
         //services.AddDbContext<ImpactDbContext>(options =>
         //         options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;DataBase=ImpactDatabase;Trusted_Connection=True;"));
 
-        services.AddDbContext<ImpactDbContext>(options =>
-                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                 builder => builder.MigrationsAssembly(typeof(ImpactDbContext).Assembly.FullName)));
+        //services.AddDbContext<ImpactDbContext>(options =>
+        //         options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+        //         builder => builder.MigrationsAssembly(typeof(ImpactDbContext).Assembly.FullName)));
 
         return services;
 

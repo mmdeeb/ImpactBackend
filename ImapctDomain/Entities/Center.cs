@@ -7,11 +7,8 @@ public class Center : BaseAuditableEntity
     public string? PhoneNumber { get; set;}
     public User? Manager { get; set;}
     public int UserId { get; set; }
-
     public List<Hall>?  Halls { get; set; }
     public string? Media { get; set; }
-
-
-
+    public List<Employee> Employees { get; set; }
 }
 

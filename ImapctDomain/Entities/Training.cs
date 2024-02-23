@@ -1,9 +1,12 @@
-﻿namespace ImpactDomain.Entities;
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace ImpactDomain.Entities;
 
 public class Training : BaseAuditableEntity
 {
     public string TrainingName { get; set; }
     public Reservation Reservation { get; set; }
+    public int ReservationId { get; set; }
     public int NumberOfStudents { get; set; }
     public string TrainingDetails { get; set;}
     public Client Clint { get; set; }

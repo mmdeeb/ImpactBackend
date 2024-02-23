@@ -7,6 +7,7 @@ public class Client : BaseAuditableEntity
     public string Email { get; set;}
     public Reservation Reservation { get; set;}
     public int ReservationId { get; set; }
+    public List<Training> Trainings { get; set; }
 }
 
 
