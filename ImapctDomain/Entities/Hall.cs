@@ -6,6 +6,6 @@ public class Hall : BaseAuditableEntity
     public Center Center { get; set;}
     public int CenterId { get; set; }
     public List<Reservation>? Reservations { get; set; }
-    public List<string>? Detials { get; set; }
+    public string ListDetials { get; set; }
 
 }

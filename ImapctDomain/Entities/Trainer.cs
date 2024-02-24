@@ -3,7 +3,7 @@
 public class Trainer : BaseAuditableEntity
 {
     public string TrainerName { get; set; }
-    public List<string>? Skills { get; set; }
+    public string ListSkills { get; set; }
     public string TrainerSpecialization { get; set; }
     public string Summary { get; set; }
     public string? CV { get; set; }

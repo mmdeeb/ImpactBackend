@@ -41,54 +41,54 @@ public class ImpactDbContext : DbContext
  
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
 
-        modelBuilder.Entity<AboutUs>().HasKey(a => a.Id);
-        modelBuilder.Entity<AdditionalCost>().HasKey(ac => ac.Id);
-        modelBuilder.Entity<Ads>().HasKey(a => a.Id);
-        modelBuilder.Entity<Attendance>().HasKey(a => a.Id);
-        modelBuilder.Entity<Center>().HasKey(c => c.Id);
-        modelBuilder.Entity<Client>().HasKey(c => c.Id);
-        modelBuilder.Entity<Employee>().HasKey(e => e.Id);
-        modelBuilder.Entity<ExternalCenter>().HasKey(ec => ec.Id);
-        modelBuilder.Entity<ExternalReservation>().HasKey(er => er.Id);
-        modelBuilder.Entity<Hall>().HasKey(h => h.Id);
-        modelBuilder.Entity<LogisticCost>().HasKey(lc => lc.Id);
-        modelBuilder.Entity<Mail>().HasKey(m=> m.Id);
-        modelBuilder.Entity<Paid>().HasKey(p => p.Id);
-        modelBuilder.Entity<Reservation>().HasKey(r => r.Id);
-        modelBuilder.Entity<ReservationDay>().HasKey(rd => rd.Id);
-        modelBuilder.Entity<Restaurant>().HasKey(e => e.Id);
-        modelBuilder.Entity<RestaurantAccount>().HasKey(ra => ra.Id);
-        modelBuilder.Entity<SubTraining>().HasKey(st => st.Id);
-        modelBuilder.Entity<Trainee>().HasKey(t => t.Id);
-        modelBuilder.Entity<Trainer>().HasKey(t => t.Id);
-        modelBuilder.Entity<Training>().HasKey(t => t.Id);
-        modelBuilder.Entity<TrainingInvoice>().HasKey(ti => ti.Id);
-        modelBuilder.Entity<TrainingType>().HasKey(tt => tt.Id);
-        modelBuilder.Entity<User>().HasKey(u => u.Id);
+        //modelBuilder.Entity<AboutUs>().HasKey(a => a.Id);
+        //modelBuilder.Entity<AdditionalCost>().HasKey(ac => ac.Id);
+        //modelBuilder.Entity<Ads>().HasKey(a => a.Id);
+        //modelBuilder.Entity<Attendance>().HasKey(a => a.Id);
+        //modelBuilder.Entity<Center>().HasKey(c => c.Id);
+        //modelBuilder.Entity<Client>().HasKey(c => c.Id);
+        //modelBuilder.Entity<Employee>().HasKey(e => e.Id);
+        //modelBuilder.Entity<ExternalCenter>().HasKey(ec => ec.Id);
+        //modelBuilder.Entity<ExternalReservation>().HasKey(er => er.Id);
+        //modelBuilder.Entity<Hall>().HasKey(h => h.Id);
+        //modelBuilder.Entity<LogisticCost>().HasKey(lc => lc.Id);
+        //modelBuilder.Entity<Mail>().HasKey(m=> m.Id);
+        //modelBuilder.Entity<Paid>().HasKey(p => p.Id);
+        //modelBuilder.Entity<Reservation>().HasKey(r => r.Id);
+        //modelBuilder.Entity<ReservationDay>().HasKey(rd => rd.Id);
+        //modelBuilder.Entity<Restaurant>().HasKey(e => e.Id);
+        //modelBuilder.Entity<RestaurantAccount>().HasKey(ra => ra.Id);
+        //modelBuilder.Entity<SubTraining>().HasKey(st => st.Id);
+        //modelBuilder.Entity<Trainee>().HasKey(t => t.Id);
+        //modelBuilder.Entity<Trainer>().HasKey(t => t.Id);
+        //modelBuilder.Entity<Training>().HasKey(t => t.Id);
+        //modelBuilder.Entity<TrainingInvoice>().HasKey(ti => ti.Id);
+        //modelBuilder.Entity<TrainingType>().HasKey(tt => tt.Id);
+        //modelBuilder.Entity<User>().HasKey(u => u.Id);
 
 
         // AboutUs entity configuration
-        modelBuilder.Entity<AboutUs>()
-            .Property(a => a.ContactInfo)
-            .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
+        //modelBuilder.Entity<AboutUs>()
+        //    .Property(a => a.ContactInfo)
+        //    .HasConversion(
+        //        v => string.Join(',', v),
+        //        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
 
-        modelBuilder.Entity<AboutUs>()
-            .Property(a => a.Links)
-            .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
+        //modelBuilder.Entity<AboutUs>()
+        //    .Property(a => a.Links)
+        //    .HasConversion(
+        //        v => string.Join(',', v),
+        //        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
 
         // Ads entity configuration
-        modelBuilder.Entity<Ads>()
-            .Property(a => a.AdsMedia)
-            .HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
+        //modelBuilder.Entity<Ads>()
+        //    .Property(a => a.AdsMedia)
+        //    .HasConversion(
+        //        v => string.Join(',', v),
+        //        v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
 
         // User entity configuration
         modelBuilder.Entity<User>()
