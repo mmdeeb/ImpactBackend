@@ -3,8 +3,9 @@ using ImpactInfrastructure;
 using ImpactInfrastructure.Persistence;
 using ImpactPresentation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
-
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,22 @@ builder.Services.AddDbContext<ImpactDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("ImpactWebApi")));
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
+//add authintication
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(
+options =>
+{
+    options.TokenValidationParameters = new()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Authentiaction:Issuer"],
+        ValidAudience = builder.Configuration["Authentiaction:Audience"],
+        IssuerSigningKey = new
+            SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["Authentiaction:Secret"])),
+    };
+}
+);
 
 var app = builder.Build();
 
@@ -34,9 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 
 app.UseAuthorization();
-app.UseAuthentication();
 app.MapControllers();
 
 app.Run();
