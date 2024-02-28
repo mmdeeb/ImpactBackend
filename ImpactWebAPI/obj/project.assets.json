@@ -4153,19 +4153,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mohammed yousef\\.nuget\\packages\\": {}
+    "C:\\Users\\aldan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebApi\\ImpactWebApi.csproj",
+      "projectUniqueName": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactWebApi\\ImpactWebApi.csproj",
       "projectName": "ImpactWebApi",
-      "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebApi\\ImpactWebApi.csproj",
-      "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactWebApi\\obj\\",
+      "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactWebApi\\ImpactWebApi.csproj",
+      "packagesPath": "C:\\Users\\aldan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aldan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4179,14 +4179,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj": {
-              "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj"
+            "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj": {
+              "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj"
             },
-            "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfrastructure\\ImpactInfrastructure.csproj": {
-              "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactInfrastructure\\ImpactInfrastructure.csproj"
+            "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactInfrastructure\\ImpactInfrastructure.csproj": {
+              "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactInfrastructure\\ImpactInfrastructure.csproj"
             },
-            "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj": {
-              "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactPresentation\\ImpactPresentation.csproj"
+            "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactPresentation\\ImpactPresentation.csproj": {
+              "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactPresentation\\ImpactPresentation.csproj"
             }
           }
         }
@@ -4249,7 +4249,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

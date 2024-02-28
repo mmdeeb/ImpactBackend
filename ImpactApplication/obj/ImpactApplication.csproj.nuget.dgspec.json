@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj": {}
+    "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\ImapctDomain.csproj": {
+    "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\ImapctDomain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\ImapctDomain.csproj",
+        "projectUniqueName": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\ImapctDomain.csproj",
         "projectName": "ImapctDomain",
-        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\ImapctDomain.csproj",
-        "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\obj\\",
+        "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\ImapctDomain.csproj",
+        "packagesPath": "C:\\Users\\aldan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj": {
+    "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj",
+        "projectUniqueName": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj",
         "projectName": "ImpactApplication",
-        "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\ImpactApplication.csproj",
-        "packagesPath": "C:\\Users\\mohammed yousef\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImpactApplication\\obj\\",
+        "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\ImpactApplication.csproj",
+        "packagesPath": "C:\\Users\\aldan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImpactApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mohammed yousef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aldan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,8 +89,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\ImapctDomain.csproj": {
-                "projectPath": "C:\\Users\\mohammed yousef\\source\\repos\\ImpactBackend\\ImapctDomain\\ImapctDomain.csproj"
+              "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\ImapctDomain.csproj": {
+                "projectPath": "C:\\Users\\aldan\\Source\\Repos\\ImpactBackend3\\ImapctDomain\\ImapctDomain.csproj"
               }
             }
           }
@@ -130,7 +130,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
