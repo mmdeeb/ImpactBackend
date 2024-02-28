@@ -5,15 +5,15 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FFFEDC10-1B0E-4E4C-A987-5EF7A423ACEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImapctDomain", "ImapctDomain\ImapctDomain.csproj", "{B3E693B1-1D02-489C-B5D1-6482264D4184}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImapctDomain", "ImapctDomain\ImapctDomain.csproj", "{B3E693B1-1D02-489C-B5D1-6482264D4184}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactApplication", "ImpactApplication\ImpactApplication.csproj", "{A005BD6A-E135-49B6-A549-2A6745665CD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactApplication", "ImpactApplication\ImpactApplication.csproj", "{A005BD6A-E135-49B6-A549-2A6745665CD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactInfrastructure", "ImpactInfrastructure\ImpactInfrastructure.csproj", "{76C42ACB-A66F-46CA-94E8-EB9B620A6522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactInfrastructure", "ImpactInfrastructure\ImpactInfrastructure.csproj", "{76C42ACB-A66F-46CA-94E8-EB9B620A6522}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactPresentation", "ImpactPresentation\ImpactPresentation.csproj", "{2CB04C56-2008-43AB-9282-85E1F9538923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactPresentation", "ImpactPresentation\ImpactPresentation.csproj", "{2CB04C56-2008-43AB-9282-85E1F9538923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactWebApi", "ImpactWebApi\ImpactWebApi.csproj", "{EB25B5DF-2DC7-4D81-A4CB-3746B4D50B4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactWebApi", "ImpactWebApi\ImpactWebApi.csproj", "{EB25B5DF-2DC7-4D81-A4CB-3746B4D50B4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -20,7 +20,8 @@ builder.Services
     .AddInfrastructure(builder.Configuration)
     .AddPresentation();
 builder.Services.AddDbContext<ImpactDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("ImpactWebApi")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+    b => b.MigrationsAssembly("ImpactWebApi")));
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
