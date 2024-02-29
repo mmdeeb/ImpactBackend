@@ -1,5 +1,5 @@
 ﻿
-namespace ImpactDomain.Entities;
+namespace Domain.Entities;
 
 public class ExternalCenter : BaseAuditableEntity
 {

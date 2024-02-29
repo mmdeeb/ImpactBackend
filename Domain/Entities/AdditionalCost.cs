@@ -1,9 +1,9 @@
-﻿namespace ImpactDomain.Entities;
+﻿namespace Domain.Entities;
 
 public class AdditionalCost : BaseAuditableEntity
 {
     public double Cost { get; set; }
-    public string Detailes { get; set; }
+    public string? Detailes { get; set; }
     public DateTime Date { get; set; }
     public  string? PhotoInvoiceURL { get; set; }
     public Training? Training { get; set; }

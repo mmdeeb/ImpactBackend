@@ -1,1 +1,1 @@
-﻿global using ImpactDomain.common;
+﻿global using Domain.common;

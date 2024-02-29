@@ -1,6 +1,6 @@
-﻿using ImpactDomain.Common;
+﻿using Domain.Common;
 
-namespace ImpactDomain.common;
+namespace Domain.common;
 
 public abstract class BaseAuditableEntity : BaseEntity
 {

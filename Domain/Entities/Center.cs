@@ -1,4 +1,4 @@
-﻿namespace ImpactDomain.Entities;
+﻿namespace Domain.Entities;
 
 public class Center : BaseAuditableEntity
 {
@@ -9,6 +9,6 @@ public class Center : BaseAuditableEntity
     public int UserId { get; set; }
     public List<Hall>?  Halls { get; set; }
     public string? Media { get; set; }
-    public List<Employee> Employees { get; set; }
+    public List<Employee>? Employees { get; set; }
 }
 

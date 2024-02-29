@@ -1,7 +1,7 @@
-﻿namespace ImpactDomain.Entities; 
+﻿namespace Domain.Entities; 
 
 public class TrainingType : BaseAuditableEntity
 {
-    public string TrainingTypeName { get; set; }
+    public string? TrainingTypeName { get; set; }
     public List<SubTraining>? SubTraining { get; set; }
 }
