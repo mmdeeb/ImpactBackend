@@ -4,6 +4,8 @@ using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
 namespace Microsoft.Extensions.DependencyInjection;
 
 
@@ -17,8 +19,8 @@ public static class ConfigureServices
 		services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<ApplicationDbContextInitialiser>();
 
-        //Add - Migration SampleMigration - Project "src\Infrastructure" - StartupProject "src\Web" - OutputDir "Persistence\Migrations"
-
+        //Add - Migration anyname - Project "src\Infrastructure" - StartupProject "src\WebUI" - OutputDir "Persistence\Migrations"
+        // Update - Database - Project "src\Infrastructure" - StartupProject "src\WebUI"
         return services;
 	}
 }

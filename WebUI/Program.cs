@@ -1,5 +1,6 @@
 using Infrastructure.Persistence;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,29 @@ builder.Services.AddApplicationServices();
 builder.Services.AddWebUIServices();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(
+    options =>
+    {
+        options.AddSecurityDefinition("ImpactWebApi", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+        {
+            Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+            Scheme = "Bearer",
+            Description = "Please enter the authintication token"
+        });
+        options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "ImpactWebApiAuth"
+                }
+            },new List<string>()
+        }
+    });
+    });
 
 
 //add authintication
