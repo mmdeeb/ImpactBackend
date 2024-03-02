@@ -21,6 +21,7 @@ public static class ConfigureServices
 
         //Add - Migration anyname - Project "src\Infrastructure" - StartupProject "src\WebUI" - OutputDir "Persistence\Migrations"
         // Update - Database - Project "src\Infrastructure" - StartupProject "src\WebUI"
+		//test
         return services;
 	}
 }
