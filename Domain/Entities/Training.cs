@@ -14,4 +14,5 @@ public class Training : BaseAuditableEntity
     public List<AdditionalCost>? AdditionalCosts { get; set;}
     public List<Attendance>? Attendances { get; set; }
     public TrainingInvoice? TrainingInvoice { get; set; }
+    public int TrainerId { get; set; }
 }
