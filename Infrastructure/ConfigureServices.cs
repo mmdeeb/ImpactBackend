@@ -19,9 +19,9 @@ public static class ConfigureServices
 		services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<ApplicationDbContextInitialiser>();
 
-        //Add - Migration anyname - Project "src\Infrastructure" - StartupProject "src\WebUI" - OutputDir "Persistence\Migrations"
-        // Update - Database - Project "src\Infrastructure" - StartupProject "src\WebUI"
-		//test
+        //Add-Migration anyname -Project "src\Infrastructure" -StartupProject "src\WebUI" -OutputDir "Persistence\Migrations"
+        //Update-Database -Project "src\Infrastructure" -StartupProject "src\WebUI"
+		
         return services;
 	}
 }

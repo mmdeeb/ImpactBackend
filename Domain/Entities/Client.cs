@@ -1,13 +1,11 @@
 ﻿namespace Domain.Entities;
-public class Client : BaseAuditableEntity
+public class Client : User
 {
-    public string? ClinetName { get; set; }
-    public string? PhoneNumber { get; set;}
-    public double Amount { get; set;}
-    public string? Email { get; set;}
     public Reservation? Reservation { get; set;}
     public int ReservationId { get; set; }
     public List<Training>? Trainings { get; set; }
+    public ClientAccount? ClientAccount { get; set; }
+    public int ClientAccountId { get; set; }
 }
 
 

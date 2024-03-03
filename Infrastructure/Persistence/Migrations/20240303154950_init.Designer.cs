@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240229110530_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240303154950_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -205,17 +205,12 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Centers");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Client", b =>
+            modelBuilder.Entity("Domain.Entities.ClientAccount", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -223,11 +218,8 @@ namespace Infrastructure.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<double>("Amount")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ClinetName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -235,8 +227,11 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Debt")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
@@ -244,21 +239,15 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ReservationId")
-                        .HasColumnType("int");
+                    b.Property<double>("TotalBalance")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ReservationId")
-                        .IsUnique();
-
-                    b.ToTable("Clients");
+                    b.ToTable("ClientAccounts");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Employee", b =>
+            modelBuilder.Entity("Domain.Entities.EmployeeAccount", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -266,8 +255,8 @@ namespace Infrastructure.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CenterId")
-                        .HasColumnType("int");
+                    b.Property<double?>("AdvancePayment")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -275,11 +264,14 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EmployeeTupe")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Debt")
+                        .HasColumnType("float");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double?>("Deduct")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
@@ -287,20 +279,22 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double?>("Reward")
+                        .HasColumnType("float");
 
                     b.Property<double>("Salary")
                         .HasColumnType("float");
 
+                    b.Property<double>("TotalBalance")
+                        .HasColumnType("float");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CenterId");
+                    b.HasIndex("EmployeeId")
+                        .IsUnique()
+                        .HasFilter("[EmployeeId] IS NOT NULL");
 
-                    b.ToTable("Employees");
+                    b.ToTable("EmployeeAccounts");
                 });
 
             modelBuilder.Entity("Domain.Entities.ExternalCenter", b =>
@@ -423,6 +417,9 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Debt")
+                        .HasColumnType("float");
+
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
 
@@ -434,6 +431,12 @@ namespace Infrastructure.Persistence.Migrations
 
                     b.Property<string>("PhotoInvoiceURL")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalBalance")
+                        .HasColumnType("float");
 
                     b.Property<int?>("TrainingInvoiceId")
                         .HasColumnType("int");
@@ -493,6 +496,9 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<double>("TotalPriceForORG")
                         .HasColumnType("float");
 
+                    b.Property<int?>("TrainingInvoiceId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -500,18 +506,23 @@ namespace Infrastructure.Persistence.Migrations
 
                     b.HasIndex("RestaurantAccountId");
 
+                    b.HasIndex("TrainingInvoiceId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Mails");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Paid", b =>
+            modelBuilder.Entity("Domain.Entities.OtherExpenses", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
@@ -522,29 +533,76 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EmployeeId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Payer")
+                    b.Property<string>("PhotoInvoiceURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("PaymentAmount")
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("OtherExpenses");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Receipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<double>("Amount")
                         .HasColumnType("float");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LogisticCostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Payer")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Receiver")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RestaurantAccountId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("RestaurantAccountId");
+                    b.HasIndex("LogisticCostId");
 
-                    b.ToTable("Paids");
+                    b.ToTable("Receipts");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Receipt");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("Domain.Entities.Reservation", b =>
@@ -579,9 +637,14 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TrainingId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HallId");
+
+                    b.HasIndex("TrainingId");
 
                     b.ToTable("Reservations");
                 });
@@ -729,6 +792,43 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("SubTrainings");
                 });
 
+            modelBuilder.Entity("Domain.Entities.SupplierAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Debt")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SupplierName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalBalance")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SupplierAccounts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Trainee", b =>
                 {
                     b.Property<int>("Id")
@@ -758,9 +858,14 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("TraineeName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TrainingId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AttendanceId");
+
+                    b.HasIndex("TrainingId");
 
                     b.ToTable("Trainees");
                 });
@@ -794,6 +899,9 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("Summary")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TrainerAccountId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TrainerName")
                         .HasColumnType("nvarchar(max)");
 
@@ -805,6 +913,43 @@ namespace Infrastructure.Persistence.Migrations
                     b.ToTable("Trainers");
                 });
 
+            modelBuilder.Entity("Domain.Entities.TrainerAccount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Debt")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalBalance")
+                        .HasColumnType("float");
+
+                    b.Property<int>("TrainerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainerId")
+                        .IsUnique();
+
+                    b.ToTable("TrainerAccounts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Training", b =>
                 {
                     b.Property<int>("Id")
@@ -812,6 +957,9 @@ namespace Infrastructure.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ClientAccountId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ClientId")
                         .HasColumnType("int");
@@ -834,6 +982,12 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<int>("ReservationId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TrainerAccountId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrainerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("TrainingDetails")
                         .HasColumnType("nvarchar(max)");
 
@@ -842,9 +996,11 @@ namespace Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ClientAccountId");
+
                     b.HasIndex("ClientId");
 
-                    b.HasIndex("ReservationId");
+                    b.HasIndex("TrainerAccountId");
 
                     b.ToTable("Trainings");
                 });
@@ -857,11 +1013,23 @@ namespace Infrastructure.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CenterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Discount")
+                        .HasColumnType("float");
+
+                    b.Property<double>("FinalCost")
+                        .HasColumnType("float");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
@@ -869,16 +1037,34 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("MealsCost")
+                        .HasColumnType("float");
+
                     b.Property<string>("PhotoInvoiceURL")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("ReservationsCost")
                         .HasColumnType("float");
 
+                    b.Property<double>("TotalCost")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TrainerCost")
+                        .HasColumnType("float");
+
+                    b.Property<int>("TrainerId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TraningId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CenterId");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("TrainerId");
 
                     b.HasIndex("TraningId")
                         .IsUnique();
@@ -928,8 +1114,11 @@ namespace Infrastructure.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Discriminator")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("LastModified")
@@ -939,20 +1128,21 @@ namespace Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserType")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("SubTrainingTrainer", b =>
@@ -968,6 +1158,84 @@ namespace Infrastructure.Persistence.Migrations
                     b.HasIndex("SubTrainingId");
 
                     b.ToTable("TrainerSubTraining", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.ReceiptFromClient", b =>
+                {
+                    b.HasBaseType("Domain.Entities.Receipt");
+
+                    b.Property<int>("ClientAccountId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ClientAccountId");
+
+                    b.HasDiscriminator().HasValue("ReceiptFromClient");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ReceiptToEmployee", b =>
+                {
+                    b.HasBaseType("Domain.Entities.Receipt");
+
+                    b.Property<int>("EmployeeAccountId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("EmployeeAccountId");
+
+                    b.HasDiscriminator().HasValue("ReceiptToEmployee");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ReceiptToRestaurant", b =>
+                {
+                    b.HasBaseType("Domain.Entities.Receipt");
+
+                    b.Property<int>("RestaurantAccountId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("RestaurantAccountId");
+
+                    b.HasDiscriminator().HasValue("ReceiptToRestaurant");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Client", b =>
+                {
+                    b.HasBaseType("Domain.Entities.User");
+
+                    b.Property<int>("ClientAccountId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReservationId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("ClientAccountId")
+                        .IsUnique()
+                        .HasFilter("[ClientAccountId] IS NOT NULL");
+
+                    b.HasIndex("ReservationId")
+                        .IsUnique()
+                        .HasFilter("[ReservationId] IS NOT NULL");
+
+                    b.HasDiscriminator().HasValue("Client");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.HasBaseType("Domain.Entities.User");
+
+                    b.Property<int>("CenterId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeAccountId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmployeeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
+                    b.HasIndex("CenterId");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 
             modelBuilder.Entity("Domain.Entities.AdditionalCost", b =>
@@ -992,37 +1260,13 @@ namespace Infrastructure.Persistence.Migrations
                         .HasForeignKey("TrainingId");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Center", b =>
+            modelBuilder.Entity("Domain.Entities.EmployeeAccount", b =>
                 {
-                    b.HasOne("Domain.Entities.User", "Manager")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Domain.Entities.Employee", "Employee")
+                        .WithOne("EmployeeAccount")
+                        .HasForeignKey("Domain.Entities.EmployeeAccount", "EmployeeId");
 
-                    b.Navigation("Manager");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Client", b =>
-                {
-                    b.HasOne("Domain.Entities.Reservation", "Reservation")
-                        .WithOne("Client")
-                        .HasForeignKey("Domain.Entities.Client", "ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Reservation");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Employee", b =>
-                {
-                    b.HasOne("Domain.Entities.Center", "Center")
-                        .WithMany("Employees")
-                        .HasForeignKey("CenterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Center");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("Domain.Entities.ExternalReservation", b =>
@@ -1076,6 +1320,10 @@ namespace Infrastructure.Persistence.Migrations
                         .WithMany("Mails")
                         .HasForeignKey("RestaurantAccountId");
 
+                    b.HasOne("Domain.Entities.TrainingInvoice", null)
+                        .WithMany("Meals")
+                        .HasForeignKey("TrainingInvoiceId");
+
                     b.HasOne("Domain.Entities.User", "Organization")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -1085,15 +1333,20 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("Organization");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Paid", b =>
+            modelBuilder.Entity("Domain.Entities.OtherExpenses", b =>
                 {
-                    b.HasOne("Domain.Entities.RestaurantAccount", "Account")
-                        .WithMany("Paids")
-                        .HasForeignKey("RestaurantAccountId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                    b.HasOne("Domain.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId");
 
-                    b.Navigation("Account");
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Receipt", b =>
+                {
+                    b.HasOne("Domain.Entities.LogisticCost", null)
+                        .WithMany("Receipts")
+                        .HasForeignKey("LogisticCostId");
                 });
 
             modelBuilder.Entity("Domain.Entities.Reservation", b =>
@@ -1104,7 +1357,13 @@ namespace Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Training", "Training")
+                        .WithMany("Reservations")
+                        .HasForeignKey("TrainingId");
+
                     b.Navigation("Hall");
+
+                    b.Navigation("Training");
                 });
 
             modelBuilder.Entity("Domain.Entities.ReservationDay", b =>
@@ -1148,35 +1407,78 @@ namespace Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Domain.Entities.Training", "Training")
+                        .WithMany("Trainees")
+                        .HasForeignKey("TrainingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Attendance");
+
+                    b.Navigation("Training");
+                });
+
+            modelBuilder.Entity("Domain.Entities.TrainerAccount", b =>
+                {
+                    b.HasOne("Domain.Entities.Trainer", "Trainer")
+                        .WithOne("TrainerAccount")
+                        .HasForeignKey("Domain.Entities.TrainerAccount", "TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trainer");
                 });
 
             modelBuilder.Entity("Domain.Entities.Training", b =>
                 {
+                    b.HasOne("Domain.Entities.ClientAccount", null)
+                        .WithMany("Trainings")
+                        .HasForeignKey("ClientAccountId");
+
                     b.HasOne("Domain.Entities.Client", "Clint")
                         .WithMany("Trainings")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Reservation", "Reservation")
+                    b.HasOne("Domain.Entities.TrainerAccount", null)
                         .WithMany("Trainings")
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("TrainerAccountId");
 
                     b.Navigation("Clint");
-
-                    b.Navigation("Reservation");
                 });
 
             modelBuilder.Entity("Domain.Entities.TrainingInvoice", b =>
                 {
+                    b.HasOne("Domain.Entities.Center", "Center")
+                        .WithMany()
+                        .HasForeignKey("CenterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Trainer", "Trainer")
+                        .WithMany()
+                        .HasForeignKey("TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.Training", "Traning")
                         .WithOne("TrainingInvoice")
                         .HasForeignKey("Domain.Entities.TrainingInvoice", "TraningId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Center");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Trainer");
 
                     b.Navigation("Traning");
                 });
@@ -1196,6 +1498,69 @@ namespace Infrastructure.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Domain.Entities.ReceiptFromClient", b =>
+                {
+                    b.HasOne("Domain.Entities.ClientAccount", "ClientAccount")
+                        .WithMany("ReceiptsFromClient")
+                        .HasForeignKey("ClientAccountId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("ClientAccount");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ReceiptToEmployee", b =>
+                {
+                    b.HasOne("Domain.Entities.EmployeeAccount", "EmployeeAccount")
+                        .WithMany("ReceiptToEmployees")
+                        .HasForeignKey("EmployeeAccountId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("EmployeeAccount");
+                });
+
+            modelBuilder.Entity("Domain.Entities.ReceiptToRestaurant", b =>
+                {
+                    b.HasOne("Domain.Entities.RestaurantAccount", "RestaurantAccount")
+                        .WithMany("ReceiptToRestaurants")
+                        .HasForeignKey("RestaurantAccountId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("RestaurantAccount");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Client", b =>
+                {
+                    b.HasOne("Domain.Entities.ClientAccount", "ClientAccount")
+                        .WithOne("Client")
+                        .HasForeignKey("Domain.Entities.Client", "ClientAccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.Reservation", "Reservation")
+                        .WithOne("Client")
+                        .HasForeignKey("Domain.Entities.Client", "ReservationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ClientAccount");
+
+                    b.Navigation("Reservation");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.HasOne("Domain.Entities.Center", "Center")
+                        .WithMany("Employees")
+                        .HasForeignKey("CenterId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Center");
+                });
+
             modelBuilder.Entity("Domain.Entities.Attendance", b =>
                 {
                     b.Navigation("Trainee");
@@ -1208,9 +1573,18 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("Halls");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Client", b =>
+            modelBuilder.Entity("Domain.Entities.ClientAccount", b =>
                 {
+                    b.Navigation("Client");
+
+                    b.Navigation("ReceiptsFromClient");
+
                     b.Navigation("Trainings");
+                });
+
+            modelBuilder.Entity("Domain.Entities.EmployeeAccount", b =>
+                {
+                    b.Navigation("ReceiptToEmployees");
                 });
 
             modelBuilder.Entity("Domain.Entities.ExternalCenter", b =>
@@ -1228,11 +1602,14 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("Reservations");
                 });
 
+            modelBuilder.Entity("Domain.Entities.LogisticCost", b =>
+                {
+                    b.Navigation("Receipts");
+                });
+
             modelBuilder.Entity("Domain.Entities.Reservation", b =>
                 {
                     b.Navigation("Client");
-
-                    b.Navigation("Trainings");
                 });
 
             modelBuilder.Entity("Domain.Entities.Restaurant", b =>
@@ -1244,7 +1621,17 @@ namespace Infrastructure.Persistence.Migrations
                 {
                     b.Navigation("Mails");
 
-                    b.Navigation("Paids");
+                    b.Navigation("ReceiptToRestaurants");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Trainer", b =>
+                {
+                    b.Navigation("TrainerAccount");
+                });
+
+            modelBuilder.Entity("Domain.Entities.TrainerAccount", b =>
+                {
+                    b.Navigation("Trainings");
                 });
 
             modelBuilder.Entity("Domain.Entities.Training", b =>
@@ -1252,6 +1639,10 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("AdditionalCosts");
 
                     b.Navigation("Attendances");
+
+                    b.Navigation("Reservations");
+
+                    b.Navigation("Trainees");
 
                     b.Navigation("TrainingInvoice");
                 });
@@ -1261,11 +1652,23 @@ namespace Infrastructure.Persistence.Migrations
                     b.Navigation("AdditionalCosts");
 
                     b.Navigation("LogisticCosts");
+
+                    b.Navigation("Meals");
                 });
 
             modelBuilder.Entity("Domain.Entities.TrainingType", b =>
                 {
                     b.Navigation("SubTraining");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Client", b =>
+                {
+                    b.Navigation("Trainings");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Employee", b =>
+                {
+                    b.Navigation("EmployeeAccount");
                 });
 #pragma warning restore 612, 618
         }

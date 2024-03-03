@@ -8,4 +8,7 @@ public class Trainer : BaseAuditableEntity
     public string? Summary { get; set; }
     public string? CV { get; set; }
     public List<SubTraining>? SubTraining { get; set; }
+
+    public TrainerAccount? TrainerAccount { get; set; }
+    public int TrainerAccountId { get; set; }         
 }

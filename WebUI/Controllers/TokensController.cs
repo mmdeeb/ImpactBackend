@@ -35,8 +35,8 @@ namespace ImpactWebApi.Controllers
             //اضافة claims الى التوكين لزيادة التعقيد
             var claims = new List<Claim>();
             claims.Add(new Claim("sub", "1"));
-            claims.Add(new Claim("given_name", "Shadi"));
-            claims.Add(new Claim("family_name", "Assi"));
+            claims.Add(new Claim("given_name", user.UserName));
+            claims.Add(new Claim("family_name", user.Password));
             //استخدمنا JWTلتوليد التوكين
             var myToken = new JwtSecurityToken(
             //الوصول الى Issuer في ملف appsettings.json
@@ -61,7 +61,7 @@ namespace ImpactWebApi.Controllers
         //دالة التحقق من اسم المستخدم وكلمة المرور
         private User ValidateUserCredentials()
         {
-            return new User("Shadi", "Assi");
+            return new User("mm", "mm");
         }
     }
     public class User

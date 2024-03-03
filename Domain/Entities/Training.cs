@@ -5,7 +5,7 @@ namespace Domain.Entities;
 public class Training : BaseAuditableEntity
 {
     public string? TrainingName { get; set; }
-    public Reservation? Reservation { get; set; }
+    public List<Reservation>? Reservations { get; set; }
     public int ReservationId { get; set; }
     public int NumberOfStudents { get; set; }
     public string? TrainingDetails { get; set;}
@@ -15,4 +15,5 @@ public class Training : BaseAuditableEntity
     public List<Attendance>? Attendances { get; set; }
     public TrainingInvoice? TrainingInvoice { get; set; }
     public int TrainerId { get; set; }
+    public List<Trainee>? Trainees { get; set; }
 }

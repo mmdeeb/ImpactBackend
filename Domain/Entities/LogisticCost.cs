@@ -10,7 +10,7 @@ public class LogisticCost : BaseAuditableEntity
     public int SupplierId { get; set; }
     public Center? Center { get; set; }
     public int CenterId { get; set; }
-    public List<Paid>? Paids { get; set; }
+    public List<Receipt>? Receipts { get; set; }
     public double TotalBalance { get; set; }
     public double Debt { get; set; }
    

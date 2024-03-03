@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ImpactBackend.Infrastructure.Persistence
 {
-	public class ApplicationDbContext : DbContext, IApplicationDbContext
-	{
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    {
 
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<AdditionalCost> AdditionalCosts { get; set; }
@@ -15,48 +15,40 @@ namespace ImpactBackend.Infrastructure.Persistence
         public DbSet<Attendance> Attendance { get; set; }
         public DbSet<Center> Centers { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<ClientAccount> ClientAccounts { get; set; }
+        public DbSet<ReceiptFromClient> ReceiptFromClients { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeeAccount> EmployeeAccounts { get; set; }
+        public DbSet<ReceiptToEmployee> ReceiptToEmploye { get; set; }
         public DbSet<ExternalCenter> ExternalCenters { get; set; }
         public DbSet<ExternalReservation> ExternalReservations { get; set; }
         public DbSet<Hall> Halls { get; set; }
         public DbSet<LogisticCost> LogisticCosts { get; set; }
         public DbSet<Mail> Mails { get; set; }
-        public DbSet<Paid> Paids { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<ReservationDay> ReservationDays { get; set; }
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<RestaurantAccount> RestaurantAccounts { get; set; }
+        public DbSet<ReceiptToRestaurant> ReceiptToRestaurants { get; set; }
         public DbSet<SubTraining> SubTrainings { get; set; }
         public DbSet<Trainee> Trainees { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<TrainingInvoice> TrainingInvoices { get; set; }
         public DbSet<TrainingType> TrainingTypes { get; set; }
+        public DbSet<OtherExpenses> OtherExpenses { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
+        public DbSet<SupplierAccount> SupplierAccounts { get; set; }
+        public DbSet<TrainerAccount> TrainerAccounts { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
-		{
-		}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
-		{
-            // User entity configuration
-            modelBuilder.Entity<User>()
-                .Property(u => u.Name)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Email)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Password)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.UserType)
-                .IsRequired();
 
             // AdditionalCost entity configuration
             modelBuilder.Entity<AdditionalCost>()
@@ -66,11 +58,7 @@ namespace ImpactBackend.Infrastructure.Persistence
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Training entity configuration
-            modelBuilder.Entity<Training>()
-                .HasOne(t => t.Reservation)
-                .WithMany(r => r.Trainings)
-                .HasForeignKey(t => t.ReservationId)
-                .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<Training>()
                 .HasOne(t => t.Clint)
@@ -82,6 +70,9 @@ namespace ImpactBackend.Infrastructure.Persistence
                 .HasOne(t => t.TrainingInvoice)
                 .WithOne(ti => ti.Traning)
                 .HasForeignKey<TrainingInvoice>(ti => ti.TraningId);
+
+
+
 
             // Reservation entity configuration
             modelBuilder.Entity<Reservation>()
@@ -184,12 +175,7 @@ namespace ImpactBackend.Infrastructure.Persistence
                 .HasForeignKey(m => m.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Paid entity configuration
-            modelBuilder.Entity<Paid>()
-                .HasOne(p => p.Account)
-                .WithMany(ra => ra.Paids)
-                .HasForeignKey(p => p.RestaurantAccountId)
-                .OnDelete(DeleteBehavior.Restrict);
+
 
             // RestaurantAccount entity configuration
             modelBuilder.Entity<RestaurantAccount>()
@@ -203,14 +189,73 @@ namespace ImpactBackend.Infrastructure.Persistence
                 .WithOne(ra => ra.Restaurant)
                 .HasForeignKey<RestaurantAccount>(ra => ra.Id);
 
+            modelBuilder.Entity<Trainee>()
+                .HasOne(t => t.Training)
+                .WithMany(t => t.Trainees)
+                .HasForeignKey(t => t.TrainingId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<ReceiptFromClient>()
+                .HasOne(rfc => rfc.ClientAccount)
+                .WithMany(ca => ca.ReceiptsFromClient)
+                .HasForeignKey(rfc => rfc.ClientAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ReceiptToEmployee>()
+                .HasOne(rte => rte.EmployeeAccount)
+                .WithMany(ea => ea.ReceiptToEmployees)
+                .HasForeignKey(rte => rte.EmployeeAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+            modelBuilder.Entity<ReceiptToRestaurant>()
+                .HasOne(rtr => rtr.RestaurantAccount)
+                .WithMany(ea => ea.ReceiptToRestaurants)
+                .HasForeignKey(rtr => rtr.RestaurantAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+
+            modelBuilder.Entity<ClientAccount>()
+                .HasOne(ca => ca.Client)
+                .WithOne(c => c.ClientAccount)
+                .HasForeignKey<ClientAccount>(c => c.ClientId);
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.ClientAccount)
+                .WithOne(ca => ca.Client)
+                .HasForeignKey<Client>(c => c.ClientAccountId);
+
+            modelBuilder.Entity<Employee>()
+                .HasOne(e => e.EmployeeAccount)
+                .WithOne(ea => ea.Employee)
+                .HasForeignKey<Employee>(e => e.EmployeeAccountId);
+            modelBuilder.Entity<EmployeeAccount>()
+                .HasOne(ea => ea.Employee)
+                .WithOne(e => e.EmployeeAccount)
+                .HasForeignKey<EmployeeAccount>(e => e.EmployeeId);
+
+
+
+            modelBuilder.Entity<Trainer>()
+                .HasOne(t => t.TrainerAccount)
+                .WithOne(ta => ta.Trainer)
+                .HasForeignKey<Trainer>(t => t.TrainerAccountId);
+            modelBuilder.Entity<TrainerAccount>()
+                .HasOne(ta => ta.Trainer)
+                .WithOne(t => t.TrainerAccount)
+                .HasForeignKey<TrainerAccount>(t => t.TrainerId);
+
+
+
             base.OnModelCreating(modelBuilder);
 
         }
 
-		public Task<int> SaveChangesAsync()
-		{
-			return base.SaveChangesAsync();
-		}
-	}
+        public Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
+        }
+    }
 }
 
